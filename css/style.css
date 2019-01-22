@@ -1,0 +1,79 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* basic reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  /* border and padding no longer added to total width or hight */
+  box-sizing: border-box;
+}
+
+body {
+  /*  use here font to inherit it down, this font-family is the parent for all childs */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  /* padding for entire web page */
+  padding: 30px;
+}
+
+.header {
+  /* 95% of the view port hight */
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
+  background-size: cover;
+  /* diff size of browser img stayis still at top visible */
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  /* this is the origin where the top and let starts to count for logo-box */
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+  /* width with be automatically figure out by th browser or viceceversa*/
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  background-color: red;
+  /* translate on x and y */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 15px;
+}

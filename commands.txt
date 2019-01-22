@@ -1,0 +1,7 @@
+1. Basic reset for CSS
+2. Add the .header in CSS and create the header in html
+4. Add a div with a img for logo
+4. Add .logo-box and .logo in CSS
+5. Add the html h1 tah for .heading-primary
+6. CSS for .heading-primary
+6. Wrapp the h1 in div with .text-box
