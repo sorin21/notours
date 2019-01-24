@@ -9,22 +9,28 @@ Dark green: #28b485
 
 /* basic reset */
 
-* {
+*, *::after, *::before {
   margin: 0;
   padding: 0;
-  /* border and padding no longer added to total width or hight */
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  /* Divide what we want 10, to the default browser, 16. So 10/16 = 0,625 */
+  font-size: 62.5%;
 }
 
 body {
   /*  use here font to inherit it down, this font-family is the parent for all childs */
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
   /* padding for entire web page */
-  padding: 30px;
+  padding: 3rem;
+  /* border and padding no longer added to total width or hight */
+  box-sizing: border-box;
 }
 
 .header {
@@ -41,39 +47,163 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
   /* width with be automatically figure out by th browser or viceceversa*/
 }
+
+/* .logo:hover {
+  animation: moveInRight 1s ease-out;
+} */
 
 .text-box {
   position: absolute;
   top: 40%;
   left: 50%;
-  background-color: red;
-  /* translate on x and y */
+  /* translate on x and y, center it */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 15px;
+  letter-spacing: 1.76rem;
+  /* animation-name: moveInRight;
+  animation-duration: 2s; */
+  animation: moveInRight 2s ease-out;
+}
+
+@keyframes moveInLeft {
+  /* start with 0% */
+  0% {
+    /* start invizible */
+    opacity: 0;
+    /* animate in X direction, more in the left the in the beginning so use negative value */
+    transform: translateX(-10rem) rotate(180deg);
+  }
+  60% {
+    transform: rotate(180deg);
+  }
+  80% {
+    transform: translateX(10rem);
+  }
+  /* finish at 100% */
+  100% {
+    opacity: 1;
+    /* 0 because should be how is now */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateX(-30rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  /* animate all properties in 2s */
+  transition: all .5s;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  /* minus because in CSS moves from top to bottom */
+  transform: translateY(-.3rem);
+  /* x y blur */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  /* ::after to show up are required content and display*/
+  content: "";
+  /* inline-block because the btn is same inline-block */
+  display: inline-block;
+  /* width and height 100% means that are the same like the btn width and height */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* -1 to be behind the btn */
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* we want it to be bigger on hover */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* fade out */
+  opacity: 0;
+}
+
+.btn-animated {
+  /* animation-delay: .75s */
+  animation: moveInBottom .5s ease-out .75s;
+  /* automatically apllys key styles  before the animation starts */
+  animation-fill-mode: backwards;
 }

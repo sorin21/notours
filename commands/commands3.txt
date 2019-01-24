@@ -1,0 +1,75 @@
+################### How CSS Works: A Look Behind the Scenes ###################
+1. 
+  a) Responsive Design
+  b) Maintenable and Scalable Code
+  c) Web Performance
+
+2. Responsive Design
+  - Fluid layouts
+  - Media queries
+  - Responsive images
+  - Correct units
+  - Desktop-first vs Mobile-first
+
+3. Maintenable and Scalable Code
+  Write code that is:
+  - Clean
+  - Easy to understand
+  - Growth
+  - Reusable
+  - How to organize files
+  - How to name classes
+  - How to structure HTML
+
+4. Web Performance
+  - Less HTTP requests
+  - Less code
+  - Compress code
+  - Use a CSS preprocessor(SAAS)
+  - Less images
+  - Compress images
+
+5. Css parsing: 
+  a) Resolving conflicts:
+    1. Importance
+      - User !important declarations
+      - Author !important declarations
+      - Author declarations
+      - User declarations
+      - Default browser declarations
+
+    2.  Specificity - same Importance
+      - Inline styles
+      - IDs
+      - Classes, pseudo classes, attribute
+      - Elements, pseudo elements
+
+      Will calculate like this, an example: inline, ids, classes, elements => (0, 1, 2, 2)
+      nav#nav div.pull-right .button
+      We read from the left to right and wich one has bigger numbers win
+
+    3. Source Order
+      If is all declarations have equal numbers that the last declaration will win
+      Always put the autor style sheet the last one 
+
+6. Value processing
+  - Each property has an initial value  if nothing is declared(and if there is no inheritance)
+  - Browser specify a root font-size for each page
+  - Percentage and relative values are always converted to pixels
+  - Percentage are measured relative to their parent's font-size, if used to specify font-size
+  - Percentage are measured relative to their parent's width, if used to specify lengths
+  - em are measured relative to their parent font-size, if used to specify font-size
+  - em are measured relative to the current font-size, if used to specify lengths
+  - rem are always measured relative to the document's root font-size
+  - vh and vw are simply percentage measuraments of the viewport's height and width
+
+7. Change all px in rem units so we can change only 1 value for diff devices
+  - use the html {}  for root
+  - add in html {} root font-size 10px and comment the 16px in body, because 10px = 1rem
+8. Use inheritance where is possible
+  - remove 
+  box-sizing: border-box;
+  in universal selector * and put it in the body
+  - in universal selector use:
+  box-sizing: inherit
+  so in this way we inherit all elements in project with the box-sizing: border-box
