@@ -9,7 +9,9 @@ Dark green: #28b485
 
 /* basic reset */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -25,9 +27,10 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
+  /* 1.7 bigger then the predifined one */
   line-height: 1.7;
   color: #777;
-  /* padding for entire web page */
+  /***** padding for entire web page ******/
   padding: 3rem;
   /* border and padding no longer added to total width or hight */
   box-sizing: border-box;
@@ -36,16 +39,22 @@ body {
 .header {
   /* 95% of the view port hight */
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
+  /*  we put gradient first so will be in the top of the image */
+  background-image:
+    linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)),
+    url(../img/hero.jpg);
+  /* cover = fits the element inside of the box */
   background-size: cover;
-  /* diff size of browser img stayis still at top visible */
+  /* with diff size of browser img stays still at top visible */
   background-position: top;
+  /* start from the top left going in the clock wise direction */
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   /* this is the origin where the top and let starts to count for logo-box */
   position: relative;
 }
 
 .logo-box {
+  /* this is absolute to .header */
   position: absolute;
   top: 4rem;
   left: 4rem;
@@ -58,59 +67,72 @@ body {
 
 /* .logo:hover {
   animation: moveInRight 1s ease-out;
-} */
+} 
+*/
 
 .text-box {
+  /* this is absolute to .header */
   position: absolute;
   top: 40%;
   left: 50%;
   /* translate on x and y, center it */
   transform: translate(-50%, -50%);
+  /* this will aling the btn to center because is text */
   text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  /* to not move the animation a little to top, 
+  and if we rotate a item to not see the back part*/
   backface-visibility: hidden;
+  /* push down the white button */
   margin-bottom: 6rem;
 }
 
 .heading-primary-main {
+  /* display block to have each one on a row */
   display: block;
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  /* animation-delay: 3s; */
+
+  animation: moveInLeft 2s ease-out;
+  /* animation-duration: 2s;
+  animation-timing-function: ease-out; 
+  */
 }
 
 .heading-primary-sub {
+  /* display block to have each one on a row */
   display: block;
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 1.76rem;
   /* animation-name: moveInRight;
-  animation-duration: 2s; */
+  animation-duration: 2s; 
+  animation-delay: 1s;
+  */
   animation: moveInRight 2s ease-out;
 }
 
 @keyframes moveInLeft {
+
   /* start with 0% */
   0% {
     /* start invizible */
     opacity: 0;
-    /* animate in X direction, more in the left the in the beginning so use negative value */
-    transform: translateX(-10rem) rotate(180deg);
+    /*  when the animation start we wnat to be more in the left
+      animate in X direction, more in the left the in the beginning, so use negative value 
+    */
+    transform: translateX(-10rem) ;
   }
-  60% {
-    transform: rotate(180deg);
-  }
+
   80% {
     transform: translateX(10rem);
   }
+
   /* finish at 100% */
   100% {
     opacity: 1;
@@ -124,9 +146,11 @@ body {
     opacity: 0;
     transform: translateX(10rem);
   }
+
   80% {
     transform: translateX(-1rem);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
@@ -138,13 +162,15 @@ body {
     opacity: 0;
     transform: translateX(-30rem);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
 
-.btn:link, .btn:visited {
+.btn:link,
+.btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -157,7 +183,8 @@ body {
 }
 
 .btn:hover {
-  /* minus because in CSS moves from top to bottom */
+  /* minus because in CSS moves from top to bottom, 
+   so when you press the button it goes up a little */
   transform: translateY(-.3rem);
   /* x y blur */
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
@@ -165,12 +192,7 @@ body {
 
 .btn:active {
   transform: translateY(-.1rem);
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-}
-
-.btn-white {
-  background-color: #fff;
-  color: #777;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
 }
 
 .btn::after {
@@ -190,15 +212,20 @@ body {
   transition: all .4s;
 }
 
-.btn-white::after {
-  background-color: #fff;
-}
-
 .btn:hover::after {
   /* we want it to be bigger on hover */
   transform: scaleX(1.4) scaleY(1.6);
   /* fade out */
   opacity: 0;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn-white::after {
+  background-color: #fff;
 }
 
 .btn-animated {

@@ -1,17 +1,25 @@
-################### Natours Project — Setup and First Steps (Part 1) ###################
-1. Basic reset for CSS
-2. Add the .header in CSS and create the header in html
+*******************  Natours Project — Setup and First Steps (Part 1) *******************
+1. Basic reset for CSS, cross browsers reset
+
+2. Add the .header in CSS and create the header tag in html
+
 4. Add a div with a img for logo
+
 4. Add .logo-box and .logo in CSS
-5. Add the html h1 tah for .heading-primary
-6. CSS for .heading-primary
-7. Wrapp the h1 in div with .text-box
-8. Add @keyframes in css
+
+5. Add div with .text-box and inside add h1 tag with .heading-primary
+
+6. CSS for .heading-primary, .heading-primary-main, .heading-primary-sub
+
+7. Put .text-box div in the center with transform: translate
+
+8. Start coding the \@keyframes in css
+
 8. Create first keyframe moveInLeft
 
   -animation-name: moveInLeft;
   -animation-duration: 5s;
-  the onlye2 props required for animation to work
+  the only 2 props required for animation to work
 
 9. Create in HTML "Discouver our tours" button and style it in CSS
   .btn:link, .btn:visited 
