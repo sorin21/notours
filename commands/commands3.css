@@ -86,3 +86,12 @@
   - in universal selector use:
   box-sizing: inherit
   so in this way we inherit all elements in project with the box-sizing: border-box
+
+9. Box model
+    Using box-sizing: border-box total width of an item is it width, becuse with this rule, padding and border are used 
+    iniside the box, so this means the the item will be smaller in the end(img or text)
+
+10. BEM 
+  .block {};
+  .block__element {};
+  .block__element--modifier {};

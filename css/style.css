@@ -61,14 +61,14 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   /* this is absolute to .header */
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
   /* width with be automatically figure out by th browser or viceceversa*/
 }
@@ -78,7 +78,7 @@ body {
 } 
 */
 
-.text-box {
+.header__text-box {
   /* this is absolute to .header */
   position: absolute;
   top: 40%;
@@ -99,7 +99,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   /* display block to have each one on a row */
   display: block;
   font-size: 6rem;
@@ -112,7 +112,7 @@ body {
   */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   /* display block to have each one on a row */
   display: block;
   font-size: 2rem;
@@ -235,17 +235,17 @@ body {
   opacity: 0;
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
 /* only .btn will have this class */
-.btn-animated {
+.btn--animated {
   /* animation-delay: .75s  so will start after others animation*/
   animation: moveInBottom .5s ease-out .75s;
   /* automatically apllys the styles, from moveInBottom, to zero before the animation starts 
