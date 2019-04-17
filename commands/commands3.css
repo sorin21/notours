@@ -32,40 +32,53 @@
 5. Css parsing: 
   a) Resolving conflicts:
     1. Importance
-      - User !important declarations
-      - Author !important declarations
-      - Author declarations
-      - User declarations
-      - Default browser declarations
+      - User !important css declarations (cel care foloseste aplicatia si poate schimba font size spre ex in browser) 
+      - Author !important css declarations (eu sunt autorul, cel care a facut aplicatia)
+      - Author css declarations
+      - User css declarations
+      - Default browser css declarations
 
-    2.  Specificity - same Importance
+    2.  Specificity - same Importance (when we have conlficts in css and we don't have any important keyword)
+        CSS rules will win in the above order:
       - Inline styles
       - IDs
       - Classes, pseudo classes, attribute
       - Elements, pseudo elements
-
+      
+      /*********** WERY IMPORTANT ***********/
+      2.1 For same importance rules
       Will calculate like this, an example: inline, ids, classes, elements => (0, 1, 2, 2)
-      nav#nav div.pull-right .button
+      nav#nav div.pull-right .button {color: white}
       We read from the left to right and wich one has bigger numbers win
+      The impostance start from left, for inline style and goes to right, lower importance, for elements
 
-    3. Source Order
-      If is all declarations have equal numbers that the last declaration will win
-      Always put the autor style sheet the last one 
+      2.2 For same specificity
+      If all declarations have equal numbers, in importance rules, than the last declaration will win
+      So that is why in a web page **Always put the autor style sheet the last one**
+
+  b)Process final CSS values
 
 6. Value processing
   - Each property has an initial value  if nothing is declared(and if there is no inheritance)
-  - Browser specify a root font-size for each page
+  - Browser specify a root font-size for each page wich is 16px, if no root font-size is specified
+  - 1.5rem is 1.5rem*16px = 24px
+
   - Percentage and relative values are always converted to pixels
   - Percentage are measured relative to their parent's font-size, if used to specify font-size
   - Percentage are measured relative to their parent's width, if used to specify lengths
+
   - em are measured relative to their parent font-size, if used to specify font-size
   - em are measured relative to the current font-size, if used to specify lengths
-  - rem are always measured relative to the document's root font-size
-  - vh and vw are simply percentage measuraments of the viewport's height and width
 
-7. Change all px in rem units so we can change only 1 value for diff devices
+  - rem are always measured relative to the document's root font-size
+
+  - vh and vw are simply percentage measuraments of the viewport's height and width
+  - 90vh is 90% of the current view port height
+
+7. Change in project all px in rem units so we can change only 1 value for diff devices and to be responsive design
   - use the html {}  for root
   - add in html {} root font-size 10px and comment the 16px in body, because 10px = 1rem
+
 8. Use inheritance where is possible
   - remove 
   box-sizing: border-box;

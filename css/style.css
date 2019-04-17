@@ -14,11 +14,19 @@ Dark green: #28b485
 *::before {
   margin: 0;
   padding: 0;
+  /* we inherit the box-sizig for entire page from body */
   box-sizing: inherit;
 }
 
 html {
-  /* Divide what we want 10, to the default browser, 16. So 10/16 = 0,625 */
+  /* Divide what we want by 10px to be the root measure, because irem = 10px, 
+  so 10 diveide to the default browser, 16. So 10/16 = 0,625 * 100 = 62.5 
+      So we used % to not overwrite the browser setting, because the user 
+      can modify it, increase, fot size for browser
+      0.625 x 16px = 10px
+      If the user changes to 20px will have
+      0.625 x 20px = 12.5px
+  */
   font-size: 62.5%;
 }
 
@@ -160,7 +168,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateX(-30rem);
+    transform: translateY(30rem);
   }
 
   100% {
@@ -179,6 +187,7 @@ body {
   /* animate all properties in 2s */
   transition: all .5s;
   position: relative;
+  /* 16px */
   font-size: 1.6rem;
 }
 
@@ -195,27 +204,34 @@ body {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
 }
 
+/* DISCOVERY TOURS button that zooms out to infinity when we hover */
 .btn::after {
   /* ::after to show up are required content and display*/
   content: "";
   /* inline-block because the btn is same inline-block */
   display: inline-block;
-  /* width and height 100% means that are the same like the btn width and height */
+  /* width and height 100% means 100% of width and height of the btn
+  because is treated like a child of the btn*/
   height: 100%;
   width: 100%;
   border-radius: 10rem;
+  /* this is absolute to .btn */
   position: absolute;
   top: 0;
   left: 0;
-  /* -1 to be behind the btn */
+  /* -1 to have this cool animation behind the btn 
+  is behind because we have to see the button text*/
   z-index: -1;
+  /* we put the animation in here because here is the initial state */
   transition: all .4s;
 }
 
+/* DISCOVERY TOURS button that zooms out to infinity when we hover */
+/* this is ::after pseudo element only when we hover the button */
 .btn:hover::after {
   /* we want it to be bigger on hover */
   transform: scaleX(1.4) scaleY(1.6);
-  /* fade out */
+  /* fade out disapear */
   opacity: 0;
 }
 
@@ -228,9 +244,14 @@ body {
   background-color: #fff;
 }
 
+/* only .btn will have this class */
 .btn-animated {
-  /* animation-delay: .75s */
+  /* animation-delay: .75s  so will start after others animation*/
   animation: moveInBottom .5s ease-out .75s;
-  /* automatically apllys key styles  before the animation starts */
+  /* automatically apllys the styles, from moveInBottom, to zero before the animation starts 
+    so this will be appy before animation starts 
+    opacity: 0;
+    transform: translateY(30rem);
+  */
   animation-fill-mode: backwards;
 }
