@@ -1,0 +1,83 @@
+.btn {
+
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /* animate all properties in 2s */
+    transition: all .5s;
+    position: relative;
+    /* 16px */
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    /* minus because in CSS moves from top to bottom, 
+   so when you press the button it goes up a little */
+    transform: translateY(-.3rem);
+    /* x y blur */
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+    /* DISCOVERY TOURS button that zooms out to infinity when we hover */
+    /* this is ::after pseudo element only when we hover the button */
+    &::after {
+      /* we want it to be bigger on hover */
+      transform: scaleX(1.4) scaleY(1.6);
+      /* fade out disapear */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .5);
+  }
+
+  /* DISCOVERY TOURS button that zooms out to infinity when we hover */
+  &::after {
+    /* ::after to show up are required content and display*/
+    content: "";
+    /* inline-block because the btn is same inline-block */
+    display: inline-block;
+    /* width and height 100% means 100% of width and height of the btn
+  because is treated like a child of the btn*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* this is absolute to .btn */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* -1 to have this cool animation behind the btn 
+  is behind because we have to see the button text*/
+    z-index: -1;
+    /* we put the animation in here because here is the initial state */
+    transition: all .4s;
+  }
+
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+
+  /* only .btn will have this class */
+  &--animated {
+    /* animation-delay: .75s  so will start after others animation*/
+    animation: moveInBottom .5s ease-out .75s;
+    /* automatically apllys the styles, from moveInBottom, to zero before the animation starts 
+    so this will be appy before animation starts 
+    opacity: 0;
+    transform: translateY(30rem);
+  */
+    animation-fill-mode: backwards;
+  }
+}

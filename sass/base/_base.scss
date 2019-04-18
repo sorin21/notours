@@ -1,0 +1,25 @@
+/* basic reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* we inherit the box-sizig for entire page from body */
+  box-sizing: inherit;
+}
+
+html {
+  /* Divide what we want by 10px to be the root measure, because irem = 10px, 
+  so 10 diveide to the default browser, 16. So 10/16 = 0,625 * 100 = 62.5 = 1rem
+      So we used % to not overwrite the browser setting, because the user 
+      can modify it, increase, fot size for browser
+      0.625 x 16px = 10px
+      If the user changes to 20px will have
+      0.625 x 20px = 12.5px
+  */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}

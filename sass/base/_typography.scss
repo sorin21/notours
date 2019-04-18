@@ -1,0 +1,47 @@
+body {
+  /*  use here font to inherit it down, this font-family is the parent for all childs */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  /* 1.7 bigger then the predifined one */
+  line-height: 1.7;
+  color: $color-gray-dark;
+  /***** padding for entire web page ******/
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /* to not move the animation a little to top, 
+  and if we rotate a item to not see the back part*/
+  backface-visibility: hidden;
+  /* push down the white button */
+  margin-bottom: 6rem;
+
+  &--main {
+    /* display block to have each one on a row */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    animation: moveInLeft 2s ease-out;
+    /* animation-duration: 2s;
+    animation-timing-function: ease-out; 
+    */
+  }
+
+  &--sub {
+    /* display block to have each one on a row */
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.76rem;
+    /* animation-name: moveInRight;
+    animation-duration: 2s; 
+    animation-delay: 1s;
+    */
+    animation: moveInRight 2s ease-out;
+  }
+}

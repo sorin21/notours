@@ -1,0 +1,51 @@
+@keyframes moveInLeft {
+
+  /* start with 0% */
+  0% {
+    /* start invizible */
+    opacity: 0;
+    /*  when the animation start we wnat to be more in the left
+      animate in X direction, more in the left the in the beginning, so use negative value 
+    */
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(10rem);
+  }
+
+  /* finish at 100% */
+  100% {
+    opacity: 1;
+    /* 0 because should be how is now */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
