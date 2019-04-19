@@ -4,5 +4,15 @@
 3. Create the CSS Grid 
   - create div with rows and cols
   - create in layout _grid.scss
+4. Starting the About section 
+  - heading-primary and heading-secondary
+  - using background-clip: text; background gets clipped exactly where the text is
 
-  
+5. Create .composition
+  Use for images width in % so in this way will scale with the view port
+6. Use icons 
+    www.linea.io
+7. Perspective
+  - rotate a card 180deg
+  - define the perspective on the parent element of the one that we want to transform
+  - use this backface-visibility: hidden; because when rotate a item to not see the back part

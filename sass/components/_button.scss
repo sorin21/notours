@@ -1,5 +1,4 @@
 .btn {
-
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -8,18 +7,18 @@
     display: inline-block;
     border-radius: 10rem;
     /* animate all properties in 2s */
-    transition: all .5s;
+    transition: all 0.5s;
     position: relative;
     /* 16px */
-    font-size: 1.6rem;
+    font-size: $default-font-size;
   }
 
   &:hover {
     /* minus because in CSS moves from top to bottom, 
    so when you press the button it goes up a little */
-    transform: translateY(-.3rem);
+    transform: translateY(-0.3rem);
     /* x y blur */
-    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
     /* DISCOVERY TOURS button that zooms out to infinity when we hover */
     /* this is ::after pseudo element only when we hover the button */
@@ -32,8 +31,8 @@
   }
 
   &:active {
-    transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 1rem rgba($color-black, .5);
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
   }
 
   /* DISCOVERY TOURS button that zooms out to infinity when we hover */
@@ -55,9 +54,8 @@
   is behind because we have to see the button text*/
     z-index: -1;
     /* we put the animation in here because here is the initial state */
-    transition: all .4s;
+    transition: all 0.4s;
   }
-
 
   &--white {
     background-color: $color-white;
@@ -68,16 +66,42 @@
     }
   }
 
-
   /* only .btn will have this class */
   &--animated {
     /* animation-delay: .75s  so will start after others animation*/
-    animation: moveInBottom .5s ease-out .75s;
+    animation: moveInBottom 0.5s ease-out 0.75s;
     /* automatically apllys the styles, from moveInBottom, to zero before the animation starts 
     so this will be appy before animation starts 
     opacity: 0;
     transform: translateY(30rem);
   */
     animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 0.3rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-primary;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    // go up a little
+    transform: translateY(-0.3rem);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    // move back to initial position
+    transform: translateY(0);
   }
 }

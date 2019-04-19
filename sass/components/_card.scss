@@ -1,0 +1,79 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  // we have to put heigh to parent as well because we used position absolute
+  // on both sides and the card lost his height
+  height: 50rem;
+
+  &__side {
+    color: $color-black;
+    height: 50rem;
+    transition: all 1.2s ease;
+    // position absolute to put both card side one stick to the other
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.3rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    // the images, nat-5.jpg, overfow the the parent in top corners
+    // so where the corners are the image should not be, so we hide these parts
+    overflow: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      // back side is already rotated 180deb, beacuse is in the back
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
+      }
+      &-2 {
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+      }
+      &-3 {
+        background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark);
+      }
+    }
+  }
+
+  // when we hover the card we want the side to transform
+  // front to go 180deg in the back
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  // back to come to 0 from 180deg
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    -webkit-background-blend-mode: screen;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      // move only one level because inthe end this sass will be css
+      // and will be in style.css not in img folder
+      background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
+    }
+  }
+}

@@ -2,15 +2,19 @@
   /* 95% of the view port hight */
   height: 95vh;
   /*  we put gradient first so will be in the top of the image */
-  background-image:
-    linear-gradient(to right bottom, rgba($color-primary-light, 0.801), rgba($color-primary-dark, 0.801)),
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
     url(../img/hero.jpg);
   /* cover = fits the element inside of the box */
   background-size: cover;
   /* with diff size of browser img stays still at top visible */
   background-position: top;
   /* start from the top left going in the clock wise direction */
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* this is the origin where the top and let starts to count for logo-box */
   position: relative;
 
